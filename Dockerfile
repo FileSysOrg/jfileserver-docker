@@ -1,11 +1,8 @@
 FROM openjdk:8
 
-# Arguments from Maven
-ARG artifactId
-ARG groupId
-ARG version
-
-ENV ARTIFACT_ID=${artifactId} GROUP_ID=${groupId} VERSION=${version}
+# Image details
+LABEL description="Java file server with SMB/CIFS, FTP/FTPS and NFS. Virtual filesystems, database filesystems"
+LABEL maintainer="gk.spencer@filesys.org"
 
 # Set the working directory for the file server
 WORKDIR /jfileserver
@@ -14,7 +11,7 @@ WORKDIR /jfileserver
 COPY target/jfileserver ./
 
 # Need to move the main Jar file
-RUN mv lib/jfileserver-$VERSION.jar jfileserver.jar
+RUN cp lib/jfileserver-${project.version}.jar jfileserver.jar
 
 # Make the run script executable
 RUN chmod +x /jfileserver/runsrv.sh

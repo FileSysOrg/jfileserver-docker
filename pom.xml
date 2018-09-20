@@ -75,20 +75,23 @@
 
             <!-- Build the Docker container -->
             <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.4</version>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.26.1</version>
 
                 <configuration>
-                    <repository>filesysorg/jfileserver</repository>
-                    <tag>${project.version}</tag>
-                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-
-                    <buildArgs>
-                        <artifactId>${project.artifactId}</artifactId>
-                        <groupId>${project.groupId}</groupId>
-                        <version>${project.version}</version>
-                    </buildArgs>
+                    <images>
+                        <image>
+                            <name>filesysorg/jfileserver</name>
+                            <build>
+                                <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                                <tags>
+                                    <tag>${project.version}</tag>
+                                    <tag>latest</tag>
+                                </tags>
+                            </build>
+                        </image>
+                    </images>
                 </configuration>
 
                 <executions>
