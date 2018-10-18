@@ -20,10 +20,10 @@ RUN chmod +x /jfileserver/runsrv.sh
 RUN mkdir logs
 
 # Expose the file server ports
-EXPOSE 1445
-EXPOSE 1139
-EXPOSE 1138
-EXPOSE 1137
+EXPOSE 445
+EXPOSE 139
+EXPOSE 138
+EXPOSE 137
 
 # Run the file server java application
 ENTRYPOINT ["/jfileserver/runsrv.sh"]

@@ -17,14 +17,9 @@
             <Win32NetBIOS/>
             <Win32Announce interval="5"/>
 
-            <!-- Requires running the server using the root account -->
-            <!--
-                  <netBIOSSMB platforms="linux,macosx,solaris"/>
-                  <tcpipSMB platforms="linux,macosx,solaris"/>
-            -->
-            <!-- To run the server using a non-root account on linux, Mac OS X, Solaris -->
-            <netBIOSSMB sessionPort="1139" namingPort="1137" datagramPort="1138" platforms="linux,macosx,solaris"/>
-            <tcpipSMB port="1445" platforms="linux,macosx,solaris"/>
+            <!-- Use the default privileged ports to run the SMB server -->
+            <netBIOSSMB/>
+            <tcpipSMB/>
 
             <hostAnnounce interval="5"/>
         </host>
