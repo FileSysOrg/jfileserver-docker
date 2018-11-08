@@ -3,16 +3,16 @@
 
 <fileserver>
     <servers>
-        <SMB/>
-        <noFTP/>
-        <noNFS/>
+        <SMB enable="${JFSRV_SMB_ENABLE}"/>
+        <FTP enable="${JFSRV_FTP_ENABLE}"/>
+        <NFS enable="${JFSRV_NFS_ENABLE}"/>
     </servers>
 
     <SMB>
-        <host name="JFILESRV" domain="FILESRV">
+        <host name="${JFSRV_SMB_SERVERNAME}" domain="${JFSRV_SMB_DOMAIN}">
             <broadcast>AUTO</broadcast>
-            <smbdialects>SMB1</smbdialects>
-            <comment>Java File Server</comment>
+            <smbdialects>${JFSRV_SMB_DIALECTS}</smbdialects>
+            <comment>JFileServer - The Java File Server</comment>
 
             <Win32NetBIOS/>
             <Win32Announce interval="5"/>
@@ -23,7 +23,7 @@
 
             <hostAnnounce interval="5"/>
         </host>
-        <sessionDebug flags="Negotiate,State,Socket"/>
+        <sessionDebug flags="${JFSRV_SMB_DEBUGFLAGS}"/>
         <!--    <netbiosDebug/> -->
         <!--    <announceDebug/> -->
 
@@ -36,9 +36,9 @@
     </SMB>
 
     <FTP>
-        <port>2121</port>
+        <port>${JFSRV_FTP_PORT}</port>
         <allowAnonymous/>
-        <debug flags="File,Search,Error,DataPort,Directory"/>
+        <debug flags="${JFSRV_FTP_DEBUGFLAGS}"/>
 
         <!-- Enable FTPS -->
         <!--
@@ -57,20 +57,18 @@
 
     <NFS>
         <enablePortMapper/>
-        <debug flags="File,FileIO"/>
+        <debug flags="${JFSRV_NFS_DEBUGFLAGS}"/>
     </NFS>
 
     <debug>
-        <output>
-<!--            <class>org.filesys.debug.ConsoleDebug</class> -->
-            <class>org.filesys.debug.LogFileDebug</class>
-            <logFile>/jfileserver/logs/jfileserver.log</logFile>
+        <output type="${JFSRV_DEBUG_OUTPUT}">
+            <logFile>${JFSRV_DEBUG_LOGPATH}</logFile>
             <append/>
         </output>
     </debug>
 
     <shares>
-        <diskshare name="JFILESHARE" comment="Test shared filesystem">
+        <diskshare name="${JFSRV_SHARE_NAME}" comment="${JFSRV_SHARE_COMMENT}">
             <driver>
                 <class>org.filesys.smb.server.disk.JavaNIODiskDriver</class>
                 <LocalPath>/jfileserver/fileShare</LocalPath>
