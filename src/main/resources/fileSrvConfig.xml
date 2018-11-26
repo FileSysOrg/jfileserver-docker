@@ -14,9 +14,6 @@
             <smbdialects>${JFSRV_SMB_DIALECTS}</smbdialects>
             <comment>JFileServer - The Java File Server</comment>
 
-            <Win32NetBIOS/>
-            <Win32Announce interval="5"/>
-
             <!-- Use the default privileged ports to run the SMB server -->
             <netBIOSSMB/>
             <tcpipSMB/>

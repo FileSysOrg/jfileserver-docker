@@ -10,9 +10,6 @@ WORKDIR /jfileserver
 # Copy in the Jars, scripts and configuration files
 COPY target/jfileserver ./
 
-# Need to move the main Jar file
-RUN cp lib/jfileserver-${project.version}.jar jfileserver.jar
-
 # Make the run script executable
 RUN chmod +x /jfileserver/runsrv.sh
 
