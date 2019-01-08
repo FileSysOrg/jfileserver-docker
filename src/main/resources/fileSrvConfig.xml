@@ -84,13 +84,13 @@
         </authenticator>
 
         <users>
-            <user name="jfilesrv">
-                <password>java</password>
+            <user name="${JFSRV_ADMIN_USER}">
+                <password>${JFSRV_ADMIN_PASSWORD}</password>
                 <comment>System administrator</comment>
                 <administrator/>
             </user>
-            <user name="normal">
-                <password>normal</password>
+            <user name="${JFSRV_NORMAL_USER}">
+                <password>$(JFSRV_NORMAL_PASSWORD}</password>
             </user>
         </users>
     </security>

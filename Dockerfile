@@ -17,10 +17,13 @@ RUN chmod +x /jfileserver/runsrv.sh
 RUN mkdir logs
 
 # Expose the file server ports
+# SMB ports
 EXPOSE 445/tcp
 EXPOSE 139/tcp
 EXPOSE 138/udp
 EXPOSE 137/udp
+# FTP port
+EXPOSE 21/tcp
 
 # Environment variables used in the server configuration that can be overridden
 ENV JFSRV_SMB_ENABLE true
@@ -40,6 +43,12 @@ ENV JFSRV_NFS_DEBUGFLAGS File,FileIO
 
 ENV JFSRV_SHARE_NAME jfileshare
 ENV JFSRV_SHARE_COMMENT Test shared filesystem
+
+ENV JFSRV_ADMIN_USER admin
+ENV JFSRV_ADMIN_PASSWORD jfilesrv
+
+ENV JFSRV_NORMAL_USER user
+ENV JFSRV_NORMAL_PASSWORD java
 
 ENV JFSRV_DEBUG_OUTPUT File
 ENV JFSRV_DEBUG_LOGPATH /jfileserver/logs/jfileserver.log
