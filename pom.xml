@@ -6,7 +6,7 @@
 
     <artifactId>jfileserver-docker</artifactId>
     <groupId>org.filesys</groupId>
-    <version>1.3.3</version>
+    <version>1.3.9</version>
     <packaging>jar</packaging>
 
 
@@ -21,7 +21,7 @@
         <dependency>
             <groupId>org.filesys</groupId>
             <artifactId>jfileserver</artifactId>
-            <version>1.3.3</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
