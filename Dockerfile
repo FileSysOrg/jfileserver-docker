@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM amazoncorretto:11
 
 # Image details
 LABEL description="Java file server with SMB/CIFS, FTP/FTPS and NFS. Virtual filesystems, database filesystems"
