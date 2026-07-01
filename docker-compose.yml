@@ -1,0 +1,14 @@
+services:
+  jfileserver:
+    image: filesysorg/jfileserver:1.4.1
+    environment:
+      JFSRV_SMB_ENABLE: true
+      JFSRV_FTP_ENABLE: false
+      JFSRV_FTP_PORT: 1121
+      JFSRV_NFS_ENABLE: false
+    ports:
+      - "445:445"
+      - "8080:8080"
+      - "8000:8000"
+    volumes:
+      - <MAP-TO-A-LOCAL-FOLDER>:/jfileserver/fileShare

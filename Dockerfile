@@ -22,6 +22,7 @@ EXPOSE 445/tcp
 EXPOSE 139/tcp
 EXPOSE 138/udp
 EXPOSE 137/udp
+
 # FTP port
 EXPOSE 21/tcp
 
