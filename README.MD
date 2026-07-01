@@ -5,7 +5,7 @@ This sample demonstrates how to run JFileServer using Docker.
 The sample includes a simple shared folder setup using the _org.filesys.smb.server.disk.JavaNIODiskDriver_ filesystem driver
 
 JFileServer only has support for the older SMB1 protocol, for SMB2 and SMB3 support see the 
-jfileserver-enterprise docker project.
+[jfileserver-enterprise docker project](https://github.com/FileSysOrg/fileserver-enterprise-docker).
 
 ## Configuring the Docker sample
 

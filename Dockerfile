@@ -51,7 +51,7 @@ ENV JFSRV_ADMIN_PASSWORD jfilesrv
 ENV JFSRV_NORMAL_USER user
 ENV JFSRV_NORMAL_PASSWORD java
 
-ENV JFSRV_DEBUG_OUTPUT File
+ENV JFSRV_DEBUG_OUTPUT Console
 ENV JFSRV_DEBUG_LOGPATH /jfileserver/logs/jfileserver.log
 
 # Run the file server java application
